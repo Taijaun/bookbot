@@ -1,7 +1,6 @@
-from stats import print_words_found, char_occurs
+from stats import formatted_report
 
 def main():
-    print_words_found()
-    char_occurs()
+    formatted_report()
 
 main()

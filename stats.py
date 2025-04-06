@@ -17,7 +17,7 @@ def print_words_found():
     book_string = get_book_text("books/frankenstein.txt")
     word_count = words_in_string(book_string)
 
-    print(f"{word_count} words found in the document")
+    return word_count
 
 def times_char_occurs(text):
     occurence = {}
@@ -28,8 +28,45 @@ def times_char_occurs(text):
         else:
             occurence[char.lower()] += 1
 
-    print(occurence)
+    return occurence
 
 def char_occurs():
     text = get_book_text("books/frankenstein.txt")
-    times_char_occurs(text)
+    return times_char_occurs(text)
+
+# take in 1 dictionary
+# return sorted list of dictionaries
+# dictionary should be
+# {character: "e",
+#      count: 5}
+# sort from largest to smallest count
+
+def sort_on(dict):
+    return dict["count"]
+
+def sorted_dict():
+    dicts_count = char_occurs()
+
+    sorted_dicts = []
+
+    for letter in dicts_count:
+        sorted_dicts.append({"char": letter, "count": dicts_count[letter]})
+    
+    sorted_dicts.sort(reverse=True, key=sort_on)
+
+
+    return sorted_dicts
+
+def formatted_report():
+    list = sorted_dict()
+
+    print("============ BOOKBOT ============")
+    print("Analyzing book found at books/frankenstein.txt...")
+    print("----------- Word Count ----------")
+    print(f"Found {print_words_found()}")
+    print("--------- Character Count -------")
+
+    for i in list:
+        print(f"{i["char"]}: {i["count"]}")
+    
+    print("============= END ===============")
