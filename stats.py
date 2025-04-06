@@ -63,7 +63,7 @@ def formatted_report():
     print("============ BOOKBOT ============")
     print("Analyzing book found at books/frankenstein.txt...")
     print("----------- Word Count ----------")
-    print(f"Found {print_words_found()}")
+    print(f"Found {print_words_found()} total words")
     print("--------- Character Count -------")
 
     for i in list:
