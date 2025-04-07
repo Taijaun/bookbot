@@ -1,3 +1,5 @@
+import sys
+
 def get_book_text(filepath):
     with open(filepath) as f:
         file_contents = f.read()
@@ -13,8 +15,8 @@ def words_in_string(text):
 
     return count
 
-def print_words_found():
-    book_string = get_book_text("books/frankenstein.txt")
+def print_words_found(filepath):
+    book_string = get_book_text(filepath)
     word_count = words_in_string(book_string)
 
     return word_count
@@ -30,8 +32,8 @@ def times_char_occurs(text):
 
     return occurence
 
-def char_occurs():
-    text = get_book_text("books/frankenstein.txt")
+def char_occurs(filepath):
+    text = get_book_text(filepath)
     return times_char_occurs(text)
 
 # take in 1 dictionary
@@ -44,8 +46,8 @@ def char_occurs():
 def sort_on(dict):
     return dict["count"]
 
-def sorted_dict():
-    dicts_count = char_occurs()
+def sorted_dict(filepath):
+    dicts_count = char_occurs(filepath)
 
     sorted_dicts = []
 
@@ -57,13 +59,13 @@ def sorted_dict():
 
     return sorted_dicts
 
-def formatted_report():
-    list = sorted_dict()
+def formatted_report(filepath):
+    list = sorted_dict(filepath)
 
     print("============ BOOKBOT ============")
-    print("Analyzing book found at books/frankenstein.txt...")
+    print(f"Analyzing book found at {filepath}")
     print("----------- Word Count ----------")
-    print(f"Found {print_words_found()} total words")
+    print(f"Found {print_words_found(filepath)} total words")
     print("--------- Character Count -------")
 
     for i in list:
